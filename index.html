@@ -27,7 +27,7 @@
                         <h3 class="header__text">Your</h3>
                         <h3 class="header__text">Task List</h3>
                     </div>
-                    <div class="header__date">asd</div>
+                    <div class="header__date"><small>{{printDate}}</small></div>
                 </div>
 
                 <div class="header__menu-dx">
@@ -49,7 +49,7 @@
             </div>
             <div class="main">
                 <ul class="task-list">
-                    <li class="task-list__item" :class="{done:task.isDone}" v-for="(task,i) in todos">
+                    <li class="task-list__item" v-show="!task.isDone" :class="{done:task.isDone}" v-for="(task,i) in todos">
                         <div class="task-item__img" ><span>
                             <i class="fa-solid fa-person"></i></div>
                         </span>
@@ -61,7 +61,7 @@
                             <div class="task-item__date">{{task.date}}</div>
                             <div class="task-item__btn"> 
                                 <button class="btn" @click="editToDo(task)"> <i class="fa-solid fa-pen"></i></button>
-                                <button class="btn" @click="removeToDo(task)"> <i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn" @click="removeToDo(i)"> <i class="fa-solid fa-trash-can"></i></button>
                                 <button class="btn" @click="completeToDo(task)"> <i class="fa-solid fa-check"></i></button> </div> 
                         </div>
                         

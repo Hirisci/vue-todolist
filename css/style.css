@@ -75,7 +75,7 @@ body{
   background-color: var(--clr-primary-0);
   color: var(--clr-secondary-0);
   position: relative;
-  top: -0.7rem;
+  top: -0.9rem;
   transform: scale(1.5);
 }
 
@@ -120,6 +120,7 @@ body{
 
 .header__date {
   position: absolute;
+  letter-spacing: 1px;
   bottom: var(--gutter-md);
 }
 
@@ -208,13 +209,46 @@ footer{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--gutter-md);
+  padding: 0.2rem var(--gutter-md);
   padding-bottom: var(--gutter-sm);
+}
+
+
+.filter{
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.filter__number{
+  aspect-ratio: 1/1;
+  font-weight: 600;
+  color: var(--clr-secondary-0);
+  background-color: var(--clr-primary-0);
+}
+
+.filter__number{
+  aspect-ratio: 1/1;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  font-size: small;
+  border-radius: 100%;
 }
 
 
 
 
+
+
+
+
+
+
+
+/*--- Funzioni js ---*/
 .done{
   opacity: 0.5;
   
