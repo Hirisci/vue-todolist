@@ -211,3 +211,16 @@ footer{
   padding: 0 var(--gutter-md);
   padding-bottom: var(--gutter-sm);
 }
+
+
+
+
+.done{
+  opacity: 0.5;
+  
+}
+
+.done .task-item__Info{
+  flex-grow: 1;
+  text-decoration: line-through;
+}
