@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600&display=swap" rel="stylesheet"> 
+    <!-- FOGLI DI STILE -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- VUE-JS VERSION 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue ~ ToDoList</title>
+</head>
+<body>
+    <div class="container">
+        <div id="app">
+            <div class="header">
+
+                <div class="header__menu-sx">
+                    <div class="header__title">
+                        <h3 class="header__text">Your</h3>
+                        <h3 class="header__text">Task List</h3>
+                    </div>
+                    <div class="header__date">asd</div>
+                </div>
+
+                <div class="header__menu-dx">
+                    <div class="header__task">
+                        <div class="task__info">
+                            <div class="task__type">
+                                <div class="type__number">20</div>
+                                <div class="type__tag"><small>personal</small></div>
+                            </div>
+                            <div class="task__progress">
+                                <span class="progress__bar"> circle</span>
+                                <span class="progress__info"> 65% total</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="main">
+                <ul class="task-list">
+                    <li class="task-list__item">
+                        <div class="task-item__img" ><span>
+                            <i class="fa-solid fa-person"></i></div>
+                        </span>
+                        <div class="task-item__Info">
+                            <div class="task-item__title">Fare la spesa</div>
+                            <div class="task-item__place">milano</div>
+                        </div>
+                        <div class="date">05/05/22</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="filter">
+                    <span class="filter__text">complete</span>
+                    <span class="filter__number"><span>5</span></span>
+                </div>
+                <button class="add">+</button>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
