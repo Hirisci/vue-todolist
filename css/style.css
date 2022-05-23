@@ -6,20 +6,21 @@
     /*- COLORI PRIMARIO -*/
     --clr-primary-0: rgb(46, 186, 238);
     --clr-primary-1: rgb(70, 82, 157);
+    --clr-primary-2: rgb(45, 51, 83);
 
     /*- COLORI SECONDARIO -*/
     --clr-secondary-0: white;
     --clr-secondary-1: rgba(255, 255, 255, 0.5);
 
 
-    --gradient-bg: linear-gradient(to right, #46529D 0%, #1C6EA4 53%, #2EBAEE 100%);
-
     /*-COLORI BG -*/
     --clr-bg-0: rgb(215, 228, 240);
     --clr-bg-1: rgb(19, 137, 178);
-    --clr-bg-2: rgb(11, 214, 161);
+    --clr-bg-2: #46529d;
     --clr-bg-3: rgb(255, 209, 102);
     --clr-bg-4: rgb(240, 70, 111);
+
+    --clr-btn-form: rgb(74, 147, 174);
 
     /*- DIMENSIONI GUTTER*/
     --gutter-xs: .25rem;
@@ -49,6 +50,10 @@ body{
   background-color: var(--clr-bg-0);
   font-weight: 200;
   
+}
+
+#app{
+  position: relative;
 }
 
 /*--- TYPO ---*/
@@ -83,12 +88,26 @@ body{
   background-color: var(--clr-primary-1);
 }
 
+.btn-form{
+  width: 100%;
+  border: none;
+  padding: 0.3rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  font-size: large;
+  font-weight: 400;
+  color: var(--clr-secondary-0);
+  background-color: var(--clr-primary-0);
+}
+
+.btn-form:hover{
+  transform: scale(1.1);
+  background-color: var(--clr-btn-form);
+}
 
 /*╔═══════════════╗
     TAG SEMANTICI
   ╚═══════════════╝*/
-
-
 /*--- HEADER ---*/
 .header{
   display: flex;
@@ -124,20 +143,23 @@ body{
   bottom: var(--gutter-md);
 }
 
-
-
 /*--- lato dx ---*/
 .header__menu-dx{
   width: 40%;
   padding:var(--gutter-md);
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.task__info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
+  
+}
 .task__type{
   text-align: center;
 }
@@ -162,6 +184,8 @@ body{
 
 /*--- TASK LIST ---*/
 .task-list{
+  height: 385px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   gap: var(--gutter-sm);
@@ -238,6 +262,129 @@ footer{
   border-radius: 100%;
 }
 
+.form{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--clr-bg-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--gutter-xl);
+}
+
+.form__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.form__header i {
+  font-size: 1.5rem;
+  color: var(--clr-primary-0);
+}
+
+.form__header h4{
+  color: white;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.form__body{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+.form__body select{
+  padding-bottom: 6px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--clr-secondary-1);
+  font-weight: 600;
+  top: 30px;
+  color: var(--clr-primary-0);
+
+}
+
+.form__body select:focus{
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-color:var(--clr-secondary-1);
+  border-image-slice: 1;
+}
+
+
+/*-----------*/
+
+.form__field {
+  box-sizing: border-box;
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid var(--clr-secondary-1);
+  outline: 0;
+  font-size: 1rem;
+  color: var(--clr-secondary-0);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1rem;
+  cursor: text;
+  font-weight: 600;
+  top: 30px;
+  color: var(--clr-primary-0);
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--clr-primary-0);
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-color:var(--clr-secondary-1);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--clr-primary-0);
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+}
+
 
 
 
@@ -255,6 +402,5 @@ footer{
 }
 
 .done .task-item__Info{
-  flex-grow: 1;
   text-decoration: line-through;
 }

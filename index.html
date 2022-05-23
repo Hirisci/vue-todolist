@@ -34,8 +34,12 @@
                     <div class="header__task">
                         <div class="task__info">
                             <div class="task__type">
-                                <div class="type__number">20</div>
+                                <div class="type__number">{{todosPersonal.length}}</div>
                                 <div class="type__tag"><small>personal</small></div>
+                            </div>
+                            <div class="task__type">
+                                <div class="type__number">{{todosWork.length}}</div>
+                                <div class="type__tag"><small>Work</small></div>
                             </div>
                             <div class="task__progress">
                                 <span class="progress__bar"> circle</span>
@@ -48,11 +52,13 @@
                 
             </div>
             <div class="main">
-                <ul class="task-list">
-                    <li class="task-list__item" v-show="!task.isDone" :class="{done:task.isDone}" v-for="(task,i) in todos">
+                <ul v-if="this.isTaskDoneVisible" class="task-list">
+                    <li class="task-list__item" :class="{done:task.isDone}" v-for="(task,i) in todosUncomplete">
                         <div class="task-item__img" ><span>
-                            <i class="fa-solid fa-person"></i></div>
+                            <i v-if="task.type"class="fa-solid fa-person"></i>
+                            <i v-else class="fa-brands fa-black-tie"></i>
                         </span>
+                        </div>
                         <div class="task-item__Info">
                             <div class="task-item__title">{{task.msg}}</div>
                             <div class="task-item__place">{{task.place}}</div>
@@ -67,16 +73,73 @@
                         
                     </li>
                 </ul>
+                <ul v-else class="task-list">
+                    <li class="task-list__item" :class="{done:task.isDone}" v-for="(task,i) in todosComplete">
+                        <div class="task-item__img" ><span>
+                            <i class="fa-solid fa-person"></i>
+                        </span>
+                    </div>
+                        <div class="task-item__Info">
+                            <div class="task-item__title">{{task.msg}}</div>
+                            <div class="task-item__place">{{task.place}}
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <div class="task-item__date">{{task.date}}</div>
+                            <div class="task-item__btn"> 
+                                <button class="btn" @click="editToDo(task)"> <i class="fa-solid fa-pen"></i></button>
+                                <button class="btn" @click="removeToDo(i)"> <i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn" @click="completeToDo(task)"> <i class="fa-solid fa-check"></i></button> 
+                            </div> 
+                        </div>
+                        
+                    </li>
+                </ul>
+                
             </div>
             <footer>
-                <div class="filter">
+                <div v-if="this.isTaskDoneVisible" class="filter" @click="toggleUl()">
                     <span class="filter__text">complete</span>
                     <span class="filter__number"><span>{{todosComplete.length}}</span></span>
                 </div>
-                <button class="btn btn--add"><i class="fa-solid fa-plus"></i></button>
+                <div v-else class="filter" @click="toggleUl()">
+                    <span class="filter__text">Da completare</span>
+                    <span class="filter__number"><span>{{todosUncomplete.length}}</span></span>
+                </div>
+                <button class="btn btn--add" @click="menuOpen()"><i class="fa-solid fa-plus"></i></button>
             </footer>
 
 
+
+
+
+            <div class="form" v-show="this.openMenu">
+                <div class="form__header">
+                    <i class="fa-solid fa-arrow-left" @click="menuOpen()"></i>
+                    <h4>Aggiungi una task</h4>
+                    <div></div>
+                </div>
+                <div class="form__body">
+                    <select name="select"  v-model="selected" id="select">
+                        <option value="personal">Personali</option>
+                        <option value="work">Lavoro</option>
+                    </select>
+                    <div class="form__group field">
+                        <input type="input" v-model="title" class="form__field" placeholder="titolo" name="titolo" id='titolo' required />
+                        <label for="titolo" class="form__label">Titolo</label>
+                    </div>
+                    
+                    <div class="form__group field">
+                        <input type="input" v-model="where" class="form__field" placeholder="luogo" name="luogo" id='luogo' required />
+                        <label for="luogo"  class="form__label">Luogo</label>
+                    </div>
+                    
+
+                </div>
+
+                <button class="btn-form" @click="addToDo()">Aggiungi</button>
+            </div>
 
 
 
