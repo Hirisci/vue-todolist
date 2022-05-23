@@ -4,7 +4,8 @@
 
  :root{
     /*- COLORI PRIMARIO -*/
-    --clr-primary-0: #5375b9;
+    --clr-primary-0: rgb(46, 186, 238);
+    --clr-primary-1: rgb(70, 82, 157);
 
     /*- COLORI SECONDARIO -*/
     --clr-secondary-0: white;
@@ -59,6 +60,29 @@ body{
   }
 
 
+/*--- BUTTON ---*/
+
+.btn{
+  height: 20px;
+  aspect-ratio: 1/1;
+  font-size: 0.75rem;
+  border-radius: 100%;
+  border: none;
+  margin-left: 0.2rem;
+}
+
+.btn--add{
+  background-color: var(--clr-primary-0);
+  color: var(--clr-secondary-0);
+  position: relative;
+  top: -0.7rem;
+  transform: scale(1.5);
+}
+
+.btn--add:hover{
+  background-color: var(--clr-primary-1);
+}
+
 
 /*╔═══════════════╗
     TAG SEMANTICI
@@ -87,7 +111,7 @@ body{
   width:60%;
   padding:var(--gutter-md);
   border-bottom: 2px solid;
-  border-color: var(--clr-primary-0);
+  border-color: var(--clr-primary-1);
   height: 100%;
   display: flex;
   align-items: center;
@@ -140,7 +164,7 @@ body{
   display: flex;
   flex-direction: column;
   gap: var(--gutter-sm);
-  padding: var(--gutter-md);
+  padding: 0 var(--gutter-md);
 }
 
 .task-list__item{
@@ -149,7 +173,14 @@ body{
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  padding: var(--gutter-md) 0;
+  border-bottom: 1px solid lightgray;
 }
+
+.task-list__item:last-child{
+  padding-bottom: var(--gutter-lg);
+}
+
 .task-item__img{
   color: var(--clr-primary-0);
 }
@@ -166,4 +197,17 @@ body{
 .task-item__Info{
   flex-grow: 1;
 }
+.task-item__date{
+  text-align: right;
+}
 
+/*--- FOOTER ---*/
+
+footer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter-md);
+  padding-bottom: var(--gutter-sm);
+}
