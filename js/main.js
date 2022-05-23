@@ -6,10 +6,10 @@ var app = new Vue({
       openMenu: false,
       todos: [
           {
-            msg: "fare la spesa", place: "milano", date : "05/05/22", isDone: false, type: true
+            msg: "fare la spesa", place: "milano", date : "05/05/2022", isDone: false, type: true
           },
           {
-            msg: "fare la spesa 2", place: "milano", date : "05/05/22", isDone: false, type: true
+            msg: "lavare la macchina", place: "milano", date : "15/05/2022", isDone: false, type: true
           },
      
           
@@ -29,11 +29,13 @@ var app = new Vue({
             this.todos[i].isDone ? this.todos.splice(i-1,1) : this.todos.splice(i,1)
         },
         addToDo(){
-            let ogg = {msg: this.title, place: this.where, date : "05/05/22", isDone: false, type: true}
+            let ogg = {msg: this.title, place: this.where, date : this.printDate, isDone: false, type: true}
             this.selected==="personal" ? ogg.type = true : ogg.type = false;
             console.log(this.selected);
             this.todos.push(ogg)
             this.menuOpen();
+            this.title=""
+            this.where=""
         },
         toggleUl(){
             this.isTaskDoneVisible = !this.isTaskDoneVisible;

@@ -66,9 +66,9 @@
                         <div>
                             <div class="task-item__date">{{task.date}}</div>
                             <div class="task-item__btn"> 
-                                <button class="btn" @click="editToDo(task)"> <i class="fa-solid fa-pen"></i></button>
-                                <button class="btn" @click="removeToDo(i)"> <i class="fa-solid fa-trash-can"></i></button>
-                                <button class="btn" @click="completeToDo(task)"> <i class="fa-solid fa-check"></i></button> </div> 
+                                <button class="btn btn--edit" @click="editToDo(task)"> <i class="fa-solid fa-pen"></i></button>
+                                <button class="btn btn--remove" @click="removeToDo(i)"> <i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn btn--complete" @click="completeToDo(task)"> <i class="fa-solid fa-check"></i></button> </div> 
                         </div>
                         
                     </li>

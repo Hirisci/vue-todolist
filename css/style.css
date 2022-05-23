@@ -21,6 +21,12 @@
     --clr-bg-4: rgb(240, 70, 111);
 
     --clr-btn-form: rgb(74, 147, 174);
+    --clr-btn-edit: #FFD166  ;
+    --clr-btn-remove: #EF476F  ;
+    --clr-btn-complete: #06D6A0  ;
+    --clr-btn-h-edit: #ffd1667a  ;
+    --clr-btn-h-remove: #ef476e82  ;
+    --clr-btn-h-complete: #06d69e84  ;
 
     /*- DIMENSIONI GUTTER*/
     --gutter-xs: .25rem;
@@ -103,6 +109,25 @@ body{
 .btn-form:hover{
   transform: scale(1.1);
   background-color: var(--clr-btn-form);
+}
+
+.btn--edit{
+  background-color: var(--clr-btn-edit);
+}
+.btn--remove{
+  background-color: var(--clr-btn-remove);
+}
+.btn--complete{
+  background-color: var(--clr-btn-complete);
+}
+.btn--edit:hover{
+  background-color: var(--clr-btn-h-edit);
+}
+.btn--remove:hover{
+  background-color: var(--clr-btn-h-remove);
+}
+.btn--complete:hover{
+  background-color: var(--clr-btn-h-complete);
 }
 
 /*╔═══════════════╗
@@ -225,7 +250,9 @@ body{
 .task-item__date{
   text-align: right;
 }
-
+.task-item__title,.task-item__place{
+  text-transform: capitalize;
+} 
 /*--- FOOTER ---*/
 
 footer{
