@@ -412,7 +412,16 @@ footer{
   margin-top: 10px;
 }
 
+.task-item__Info--input{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
+.task-item__Info--input input{
+  border: none;
+  border-bottom: 2px solid var(--clr-primary-0)
+}
 
 
 

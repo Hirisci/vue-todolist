@@ -42,8 +42,9 @@
                                 <div class="type__tag"><small>Work</small></div>
                             </div>
                             <div class="task__progress">
-                                <span class="progress__bar"> circle</span>
-                                <span class="progress__info"> 65% total</span>
+                                <span class="progress__info">
+                                    
+                                    {{Number.parseFloat((todosComplete.length*100)/todos.length).toFixed(0)}}% total</span>
                             </div>
                         </div>
                     </div>
@@ -59,14 +60,19 @@
                             <i v-else class="fa-brands fa-black-tie"></i>
                         </span>
                         </div>
-                        <div class="task-item__Info">
+                        <div v-if="task.editMode" class="task-item__Info">
                             <div class="task-item__title">{{task.msg}}</div>
                             <div class="task-item__place">{{task.place}}</div>
                         </div>
+                        <div v-else class="task-item__Info--input">
+                            <input class="task-item__title" v-model="task.msg">
+                            <input class="task-item__place" v-model="task.place">
+                        </div>
+
                         <div>
                             <div class="task-item__date">{{task.date}}</div>
                             <div class="task-item__btn"> 
-                                <button class="btn btn--edit" @click="editToDo(task)"> <i class="fa-solid fa-pen"></i></button>
+                                <button class="btn btn--edit" @click="editToDo(i)"> <i class="fa-solid fa-pen"></i></button>
                                 <button class="btn btn--remove" @click="removeToDo(i)"> <i class="fa-solid fa-trash-can"></i></button>
                                 <button class="btn btn--complete" @click="completeToDo(task)"> <i class="fa-solid fa-check"></i></button> </div> 
                         </div>

@@ -4,32 +4,34 @@ var app = new Vue({
       date: new Date(),
       isTaskDoneVisible: true,
       openMenu: false,
+      
       todos: [
           {
-            msg: "fare la spesa", place: "milano", date : "05/05/2022", isDone: false, type: true
+            msg: "fare la spesa", place: "milano", date : "05/05/2022", isDone: false, type: true, editMode: true
           },
           {
-            msg: "lavare la macchina", place: "milano", date : "15/05/2022", isDone: false, type: true
+            msg: "lavare la macchina", place: "milano", date : "15/05/2022", isDone: false, type: true, editMode: true
           },
      
           
         ],
         title: '',
         where: '',
-        selected: "",
+        selected: "personal",
     },
     methods: {
         completeToDo(todo){
            todo.isDone=!todo.isDone
         },
-        editToDo(todo){
-
+        editToDo(i){
+            this.todos[i].editMode=!this.todos[i].editMode
         },
         removeToDo(i){
+            
             this.todos[i].isDone ? this.todos.splice(i-1,1) : this.todos.splice(i,1)
         },
         addToDo(){
-            let ogg = {msg: this.title, place: this.where, date : this.printDate, isDone: false, type: true}
+            let ogg = {msg: this.title, place: this.where, date : this.printDate, isDone: false, type: true,editMode: true}
             this.selected==="personal" ? ogg.type = true : ogg.type = false;
             console.log(this.selected);
             this.todos.push(ogg)
@@ -65,8 +67,7 @@ var app = new Vue({
             var month=this.date.getMonth()+1;  
             var year=this.date.getFullYear();  
             return `${day}/${month}/${year}`
-        },
-      
+        },      
     }
   })
 
